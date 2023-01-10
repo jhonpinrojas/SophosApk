@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/SendDocument"
+        android:orderInCategory="100"
+        android:iconTint="@color/design_default_color_on_primary"
+        android:title="@string/SendDocument" />
+    <item
+        android:id="@+id/WatchDocument"
+        android:orderInCategory="101"
+        android:iconTint="@color/dark_purple_700"
+        android:title="@string/WatchDocument" />
+    <item
+        android:id="@+id/office"
+        android:orderInCategory="102"
+        android:title="@string/Office" />
+    <item
+        android:id="@+id/Nightmode"
+        android:orderInCategory="103"
+        android:title="@string/Nightmode" />
+    <item
+        android:id="@+id/Language"
+        android:orderInCategory="104"
+        android:title="@string/Language" />
+</menu>

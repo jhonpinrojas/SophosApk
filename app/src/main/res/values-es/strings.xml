@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicacion Sophos</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Correo</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Ingresar</string>
+    <string name="action_sign_fingerprint">Ingresar con huella</string>
+    <string name="welcome">"Bienvenido"</string>
+    <string name="options">"Estas son las opciones que tenemos para ti"</string>
+    <string name="invalid_username">Usuario invalido</string>
+    <string name="invalid_password">Contraseña debe ser de mas de 5 caracteres</string>
+    <string name="login_failed">Accesso fallido</string>
+    <string name="next">Siguiente</string>
+    <string name="SendDocument">Enviar Documento</string>
+    <string name="WatchDocument">Ver Documento</string>
+    <string name="Office">Oficinas</string>
+    <string name="Language">Idioma</string>
+    <string name="Nightmode">Modo Nocturno</string>
+    <string name="previous">Anterior</string>
+    <string name="enter">Ingresar</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_ofice_maps">OficeMapsActivity</string>
+    <string name="title_activity_watch_document">WatchDocumentActivity</string>
+</resources>
