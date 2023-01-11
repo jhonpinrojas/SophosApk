@@ -20,12 +20,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:text="Ingresa tus datos para acceder"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +37,10 @@
             android:id="@+id/Camerabutton2"
             android:layout_width="118dp"
             android:layout_height="111dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="50dp"
+            android:background="#00000000"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
             app:layout_constraintVertical_bias="0.0"
@@ -125,20 +127,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.364"
             app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/pinkactivity"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <Button
             android:id="@+id/Sendfile2"
-            android:layout_width="127dp"
-            android:layout_height="0dp"
+            android:layout_width="136dp"
+            android:layout_height="46dp"
             android:layout_marginTop="28dp"
             android:layout_marginBottom="76dp"
+            android:backgroundTint="@color/pinkactivity"
             android:text="Enviar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.464"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Loadfile"
+            app:layout_constraintTop_toBottomOf="@+id/Loadfile2"
             app:layout_constraintVertical_bias="0.014" />
 
 

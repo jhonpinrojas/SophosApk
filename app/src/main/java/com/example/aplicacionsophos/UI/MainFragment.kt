@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import com.example.aplicacionsophos.R
 import java.util.*
 
@@ -27,7 +28,8 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        val view=inflater.inflate(R.layout.fragment_main, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -36,19 +38,19 @@ class MainFragment : Fragment() {
         val buttonSendocument = view?.findViewById<Button>(R.id.button_senddocument2)
         val buttonoffice = view?.findViewById<Button>(R.id.button_sendoffice2)
         val buttonwritedocument = view?.findViewById<Button>(R.id.button_writedocument2)
-        buttonSendocument?.setOnClickListener { getdocument() }
-        buttonoffice?.setOnClickListener { gotomap() }
-        buttonwritedocument?.setOnClickListener { gotosenddocument() }
+        buttonSendocument?.setOnClickListener { findNavController().navigate(R.id.action_mainFragment_to_getDataFragment2) }
+        buttonoffice?.setOnClickListener { findNavController().navigate(R.id.action_mainFragment_to_mapFragment2)}
+        buttonwritedocument?.setOnClickListener { findNavController().navigate(R.id.action_mainFragment_to_sendDataFragment2)}
 
     }
 
     private fun getdocument() {
         //val z= Intent(this, GetDocumentActivity::class.java)
         //startActivity(z)
-        val getdatafrag = GetDataFragment()
+        /*val getdatafrag = GetDataFragment()
         val transaccion: FragmentTransaction = requireFragmentManager().beginTransaction()
-        transaccion.replace(R.id.container, getdatafrag)
-        transaccion.commitNow()
+        transaccion.replace(R.id.nav_host_fragment_content_main, getdatafrag)
+        transaccion.commitNow()*/
     }
 
     private fun gotosenddocument() {
@@ -58,10 +60,10 @@ class MainFragment : Fragment() {
         //startActivity(i)
         //i.putExtra("idregistro", idregistro)
         //i.putExtra("mail", mail)
-        val senddatafrag = SendDataFragment()
+        /*val senddatafrag = SendDataFragment()
         val transaccion: FragmentTransaction = requireFragmentManager().beginTransaction()
-        transaccion.replace(R.id.container, senddatafrag)
-        transaccion.commitNow()
+        transaccion.replace(R.id.nav_host_fragment_content_main, senddatafrag)
+        transaccion.commitNow()*/
     }
 
     private fun gotomap() {
@@ -70,10 +72,10 @@ class MainFragment : Fragment() {
         //val i= Intent(this, OficeMapsActivity::class.java)
         // i.putExtra("miLista", lista)
         // startActivity(i)
-        val mapdatafrag = MapFragment()
+        /*val mapdatafrag = MapFragment()
         val transaccion: FragmentTransaction = requireFragmentManager().beginTransaction()
-        transaccion.replace(R.id.container, mapdatafrag)
-        transaccion.commitNow()
+        transaccion.replace(R.id.nav_host_fragment_content_main, mapdatafrag)
+        transaccion.commitNow()*/
     }
 
 }

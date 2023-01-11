@@ -25,7 +25,7 @@ private val service: Api = retrofit.create(Api::class.java)
 
 val documentList = MutableLiveData<List<Document>>()
 val oficeList = MutableLiveData<List<Office>>()
-val Logininfo = MutableLiveData<User>()
+val logininfo = MutableLiveData<User>()
 val loginuser = MutableLiveData<String>()
 val iduser = MutableLiveData<Int>()
 fun getDocumentList(id:String,correo:String){
@@ -43,7 +43,7 @@ fun getDocumentList(id:String,correo:String){
     })
 }
 
-fun getOficeList() {
+    fun getOficeList() {
 //viewModelScope.launch {
     val call = service.getofices()
     call.enqueue(object : Callback<officeResponse> {
@@ -68,7 +68,8 @@ fun getuserlogin(correo: String,password:String){
         override fun onResponse(call: Call<User>, response: Response<User>) {
              if(response.isSuccessful) {
                 val loginresponse = response.body()
-                if (loginresponse == null) {
+                 response.body()?.let { list -> logininfo.postValue(list) }
+                /* if (loginresponse == null) {
                     response.errorBody().toString()
                 }else{
                     if(loginresponse.acceso.equals(true) ){
@@ -77,9 +78,9 @@ fun getuserlogin(correo: String,password:String){
                         response.body()?.nombre?.let { name -> loginuser.postValue(name) }
                         response.body()?.id?.let { id -> iduser.postValue(id) }
                         }else {
-                        response.errorBody().toString()
+                        loginresponse.acceso
                     }
-                }
+                }*/
             }
             else{
                  response.errorBody().toString()

@@ -3,16 +3,20 @@
     >
     <item
         android:id="@+id/SendDocument"
+        android:icon="@drawable/description"
+        android:iconTint="@color/design_default_color_error"
+        android:iconTintMode="multiply"
         android:orderInCategory="100"
-        android:iconTint="@color/design_default_color_on_primary"
         android:title="@string/SendDocument" />
     <item
         android:id="@+id/WatchDocument"
-        android:orderInCategory="101"
+        android:icon="@drawable/plagiarism"
         android:iconTint="@color/dark_purple_700"
+        android:orderInCategory="101"
         android:title="@string/WatchDocument" />
     <item
         android:id="@+id/office"
+        android:icon="@drawable/location_on"
         android:orderInCategory="102"
         android:title="@string/Office" />
     <item

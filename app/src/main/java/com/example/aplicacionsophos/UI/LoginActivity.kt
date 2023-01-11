@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.aplicacionsophos.R
+import com.example.aplicacionsophos.data.model.Office
 import com.example.aplicacionsophos.data.model.User
 import com.example.aplicacionsophos.service.Api
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,24 +19,37 @@ import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
-    private val apiservice: Api by lazy {
+    private lateinit var viewModel: AplicationViewModel
+    private lateinit var infolist: User
+   /* private val apiservice: Api by lazy {
         Api.create()
-    }
+    }*/
+
     private var idregistro=""
     private var mail=""
     private var nameuser=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        viewModel = ViewModelProvider(this).get(AplicationViewModel::class.java)
         val buttonlogin=findViewById<Button>(R.id.login)
+        val email= findViewById<EditText>(R.id.username).text.toString()
+        val password = findViewById<EditText>(R.id.password).text.toString()
         buttonlogin.setOnClickListener {
-            performLogin()
+            //performLogin()
+            viewModel.getuserlogin(email,password)
+            viewModel.logininfo.observe(this, Observer {list-> infolist=list })
+            if (infolist.acceso){
+                gotomenu()
+            }else{
+                Toast.makeText(applicationContext,"credenciales erroneas",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
 
 
-    private fun performLogin(){
+  /*  private fun performLogin(){
         val email= findViewById<EditText>(R.id.username).text.toString()
         val password = findViewById<EditText>(R.id.password).text.toString()
 
@@ -67,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
         })
-    }
+    }*/
 
     private fun gotomenu(){
         val i= Intent(this, Main::class.java)

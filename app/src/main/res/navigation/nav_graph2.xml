@@ -3,16 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph2"
-    app:startDestination="@id/sendDataFragment">
-
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.aplicacionsophos.UI.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_getDataFragment2"
+            app:destination="@id/getDataFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_sendDataFragment2"
+            app:destination="@id/sendDataFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mapFragment2"
+            app:destination="@id/mapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/getDataFragment"
         android:name="com.example.aplicacionsophos.UI.GetDataFragment"
         android:label="fragment_get_data"
         tools:layout="@layout/fragment_get_data" >
         <action
-            android:id="@+id/action_getDataFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_getDataFragment_to_mainFragment2"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_getDataFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_getDataFragment_to_sendDataFragment"
+            app:destination="@id/sendDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/sendDataFragment"
@@ -20,22 +42,15 @@
         android:label="fragment_send_data"
         tools:layout="@layout/fragment_send_data" >
         <action
-            android:id="@+id/action_sendDataFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.aplicacionsophos.UI.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+            android:id="@+id/action_sendDataFragment_to_mainFragment2"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_mainFragment_to_getDataFragment"
+            android:id="@+id/action_sendDataFragment_to_getDataFragment"
             app:destination="@id/getDataFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_sendDataFragment"
-            app:destination="@id/sendDataFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_mapFragment"
+            android:id="@+id/action_sendDataFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
     </fragment>
     <fragment
@@ -44,7 +59,15 @@
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" >
         <action
-            android:id="@+id/action_mapFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_mapFragment_to_mainFragment2"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mapFragment_to_sendDataFragment"
+            app:destination="@id/sendDataFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_getDataFragment"
+            app:destination="@id/getDataFragment" />
     </fragment>
 </navigation>

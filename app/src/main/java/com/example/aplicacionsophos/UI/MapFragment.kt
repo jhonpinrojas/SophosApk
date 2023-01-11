@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_map.*
 
 class MapFragment : Fragment(), OnMapReadyCallback {
+
     private lateinit var viewModel: AplicationViewModel
     private lateinit var mMap: GoogleMap
     private lateinit var googleMap: GoogleMap
@@ -51,6 +52,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         mapView.onResume()
         mapView.getMapAsync(this)
         //updatemap()
+      //  Mytoolbar().show(requireActivity(),"Jhon",true)
     }
     private fun updatemap() {
         officeList.forEach {
