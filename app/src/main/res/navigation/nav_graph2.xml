@@ -6,7 +6,7 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.aplicacionsophos.UI.MainFragment"
+        android:name="com.example.aplicacionsophos.UI.Main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/getDataFragment"
-        android:name="com.example.aplicacionsophos.UI.GetDataFragment"
+        android:name="com.example.aplicacionsophos.UI.GetData.GetDataFragment"
         android:label="fragment_get_data"
         tools:layout="@layout/fragment_get_data" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/sendDataFragment"
-        android:name="com.example.aplicacionsophos.UI.SendDataFragment"
+        android:name="com.example.aplicacionsophos.UI.SendData.SendDataFragment"
         android:label="fragment_send_data"
         tools:layout="@layout/fragment_send_data" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.aplicacionsophos.UI.MapFragment"
+        android:name="com.example.aplicacionsophos.UI.Map.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" >
         <action

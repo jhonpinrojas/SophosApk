@@ -1,4 +1,4 @@
-package com.example.aplicacionsophos.UI
+package com.example.aplicacionsophos.UI.Map
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -13,21 +13,24 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.example.aplicacionsophos.R
+import com.example.aplicacionsophos.ViewModel.AplicationViewModel
 import com.example.aplicacionsophos.data.model.Office
-import com.example.aplicacionsophos.databinding.ActivityOficeMapsBinding
+//import com.example.aplicacionsophos.databinding.ActivityOficeMapsBinding
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_map.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var viewModel: AplicationViewModel
     private lateinit var mMap: GoogleMap
     private lateinit var googleMap: GoogleMap
-    private lateinit var binding: ActivityOficeMapsBinding
+    //private lateinit var binding: ActivityOficeMapsBinding
     private var officeList: List<Office> = emptyList<Office>()
     companion object {
         fun newInstance() = MapFragment()
@@ -52,7 +55,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         mapView.onResume()
         mapView.getMapAsync(this)
         //updatemap()
-      //  Mytoolbar().show(requireActivity(),"Jhon",true)
+
     }
     private fun updatemap() {
         officeList.forEach {
@@ -108,7 +111,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         } else {
             ActivityCompat.requestPermissions(requireActivity(),
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                REQUEST_CODE_LOCATION)
+                REQUEST_CODE_LOCATION
+            )
         }
 
 

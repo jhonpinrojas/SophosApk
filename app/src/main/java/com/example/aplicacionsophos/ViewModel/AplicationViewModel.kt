@@ -1,17 +1,12 @@
-package com.example.aplicacionsophos.UI
-import android.widget.Toast
+package com.example.aplicacionsophos.ViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.aplicacionsophos.data.model.*
 import com.example.aplicacionsophos.service.Api
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 class AplicationViewModel: ViewModel() {
@@ -22,12 +17,16 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 private val service: Api = retrofit.create(Api::class.java)
+//private val repository = Aplicationrepository(service)
+//private val logininfo = MutableLiveData<User>()
 
 val documentList = MutableLiveData<List<Document>>()
 val oficeList = MutableLiveData<List<Office>>()
-val logininfo = MutableLiveData<User>()
+//private val logininfo = LiveData<User>()
 val loginuser = MutableLiveData<String>()
 val iduser = MutableLiveData<Int>()
+
+
 fun getDocumentList(id:String,correo:String){
     val call = service.getdocuments(id,correo)
     call.enqueue(object : Callback<DocumentsResponse>{
@@ -44,57 +43,51 @@ fun getDocumentList(id:String,correo:String){
 }
 
     fun getOficeList() {
-//viewModelScope.launch {
-    val call = service.getofices()
-    call.enqueue(object : Callback<officeResponse> {
-        override fun onResponse(call: Call<officeResponse>, response: Response<officeResponse>) {
-            response.body()?.Items?.let { list -> oficeList.postValue(list) }
+        val call = service.getofices()
+        call.enqueue(object : Callback<officeResponse>{
+            override fun onResponse(call: Call<officeResponse>, response: Response<officeResponse>) {
+                response.body()?.Items?.let { list ->
+                    oficeList.postValue(list)
+                }
+            }
+            override fun onFailure(call: Call<officeResponse>, t: Throwable) {
+                call.cancel()
+            }
 
-        }
-
-        override fun onFailure(call: Call<officeResponse>, t: Throwable) {
-            call.cancel()
-        }
-
-    })
-
-
-
+        })
 }
 
-fun getuserlogin(correo: String,password:String){
-    val call = service.postlogin(correo,password)
-    call.enqueue(object : Callback<User>{
-        override fun onResponse(call: Call<User>, response: Response<User>) {
-             if(response.isSuccessful) {
-                val loginresponse = response.body()
-                 response.body()?.let { list -> logininfo.postValue(list) }
-                /* if (loginresponse == null) {
+
+
+    suspend fun getuserlogin(correo: String, password:String){/*
+        CoroutineScope(Dispatchers.IO).launch {
+        var userLogin=service.postlogin(correo,password)
+            val response = service.postlogin(correo, password)
+            if(response.isSuccessful) {
+                response.body()?.let { list -> logininfo.postValue(list) }
+
+                if (userLogin == null) {
                     response.errorBody().toString()
                 }else{
-                    if(loginresponse.acceso.equals(true) ){
+                    if(response.body()?.acceso?. == true){
                         /*    Toast.makeText(applicationContext, "bienvenido", Toast.LENGTH_SHORT).show()
                         gotomenu()*/
                         response.body()?.nombre?.let { name -> loginuser.postValue(name) }
                         response.body()?.id?.let { id -> iduser.postValue(id) }
                         }else {
-                        loginresponse.acceso
+                        response.acceso
                     }
-                }*/
+                }
             }
             else{
-                 response.errorBody().toString()
-                }
-        }
-        override fun onFailure(call: Call<User>, t: Throwable) {
-            call.cancel()
-        }
+                response.errorBody().toString()
+            }
 
-    })
-}
+        }*/
+    }
+
 
     fun postdocument(document: Document){
-
         val call=service.postdocuments(document)
         call.enqueue(object : Callback<Document> {
             override fun onResponse(call: Call<Document>, response: Response<Document>) {

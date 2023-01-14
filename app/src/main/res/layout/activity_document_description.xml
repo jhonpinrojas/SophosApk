@@ -4,37 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.DocumentDescriptionActivity">
+    tools:context=".UI.GetData.DocumentDescriptionActivity">
 
     <TextView
         android:id="@+id/tipodocumentdescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="Tipo de documento"
+        android:text="@string/attached"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tipodocumentb64"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Codigo base64"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipodocumentdescription" />
 
     <ImageView
         android:id="@+id/imageViewDecode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
         android:src="@drawable/plantilla_corporativa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipodocumentb64"
-        app:layout_constraintVertical_bias="0.147" />
+        app:layout_constraintTop_toBottomOf="@+id/tipodocumentdescription"
+        app:layout_constraintVertical_bias="0.196" />
 </androidx.constraintlayout.widget.ConstraintLayout>

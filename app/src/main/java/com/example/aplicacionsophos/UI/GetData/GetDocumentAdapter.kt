@@ -1,4 +1,4 @@
-package com.example.aplicacionsophos.UI
+package com.example.aplicacionsophos.UI.GetData
 
 import android.view.LayoutInflater
 import android.view.View

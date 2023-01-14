@@ -1,4 +1,4 @@
-package com.example.aplicacionsophos.UI
+package com.example.aplicacionsophos.UI.GetData
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -20,7 +20,6 @@ class DocumentDescriptionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_document_description)
         tipodocument=findViewById(R.id.tipodocumentdescription)
-        b64=findViewById<TextView>(R.id.tipodocumentb64)
         imagedecode=findViewById(R.id.imageViewDecode)
         val tipodocumento=intent.extras?.get("tipo") as String
         val photobase64=intent.extras?.get("adjunto") as String

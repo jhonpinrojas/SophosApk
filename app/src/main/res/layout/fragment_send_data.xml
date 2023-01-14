@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.SendDataFragment">
+    tools:context=".UI.SendData.SendDataFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:text="Ingresa tus datos para acceder"
+            android:text="@string/DataAccess"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -73,9 +73,9 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/badge"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:pointerIcon="context_menu"
-                android:hint="Numero de documento" />
+                android:hint="@string/DocumentNumber" />
 
             <EditText
                 android:id="@+id/edtName2"
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Nombres" />
+                android:hint="@string/name" />
 
             <EditText
                 android:id="@+id/edtlastname2"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Apellidos" />
+                android:hint="@string/lastname" />
 
             <EditText
                 android:id="@+id/edtemail2"
@@ -99,14 +99,21 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Correo" />
+                android:hint="@string/Email" />
 
+            <EditText
+                android:id="@+id/attachedtype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/attached" />
             <EditText
                 android:id="@+id/edtcity2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="0dp"
-                android:hint="Ciudad"/>
+                android:hint="@string/City"/>
 
             <Spinner
                 android:id="@+id/spinnercity2"
@@ -123,7 +130,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:drawableLeft="@drawable/backup"
-            android:text="Documento"
+            android:textAllCaps="false"
+            android:text="@string/Document"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.364"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +145,8 @@
             android:layout_marginTop="28dp"
             android:layout_marginBottom="76dp"
             android:backgroundTint="@color/pinkactivity"
-            android:text="Enviar"
+            android:textAllCaps="false"
+            android:text="@string/Send"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.464"

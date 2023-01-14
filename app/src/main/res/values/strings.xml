@@ -15,10 +15,20 @@
     <string name="WatchDocument">Watch Document</string>
     <string name="Office">Office</string>
     <string name="Language">Language</string>
-    <string name="Nightmode">Modo Nocturno</string>
+    <string name="Nightmode">Night Mode</string>
     <string name="previous">previous</string>
     <string name="enter">Enter</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="name">Name</string>
+    <string name="lastname">Lastname</string>
+    <string name="Email">Mail</string>
+    <string name="City">City</string>
+    <string name="attached">Attached type</string>
+    <string name="DocumentNumber">Document Number</string>
+    <string name="DataAccess">Enter your data to access</string>
+    <string name="Document">Document</string>
+    <string name="Send">Send</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

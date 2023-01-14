@@ -4,8 +4,10 @@ import com.example.aplicacionsophos.data.model.DocumentsResponse
 import com.example.aplicacionsophos.data.model.User
 import com.example.aplicacionsophos.data.model.officeResponse
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.GET
@@ -13,6 +15,7 @@ import retrofit2.http.Query
 
 
 interface Api {
+
     @GET (value="RS_Usuarios")
     fun postlogin(@Query(value = "idUsuario") idUsuario:String,@Query(value = "clave") clave:String):Call<User>
     @GET (value="RS_Oficinas")
@@ -24,11 +27,10 @@ interface Api {
     fun postdocuments(@Body document: Document):
             Call<Document>
 
-        companion object Factory{
-        private const val BASE_URL = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/"
-        fun create(): Api {
+      companion object Factory{
+      fun create(): Api {
             val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl("https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             return retrofit.create(Api::class.java)

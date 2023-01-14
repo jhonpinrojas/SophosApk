@@ -1,4 +1,4 @@
-package com.example.aplicacionsophos.UI
+package com.example.aplicacionsophos.UI.SendData
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -19,8 +19,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.example.aplicacionsophos.R
+import com.example.aplicacionsophos.ViewModel.AplicationViewModel
 import com.example.aplicacionsophos.data.model.Document
 import com.example.aplicacionsophos.data.model.Office
+import kotlinx.android.synthetic.main.fragment_send_data.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -58,7 +63,9 @@ class SendDataFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(AplicationViewModel::class.java)
-        viewModel.getOficeList()
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.getOficeList()
+        }
         viewModel.oficeList.observe(viewLifecycleOwner, Observer {list-> officeList=list  })
         updatecity()
         init()
@@ -73,13 +80,14 @@ class SendDataFragment : Fragment() {
             val lastname=edtlastname.text.toString()
             val city = edtcity.text.toString()
             val mail= edtemail.text.toString()
-            if(img64b!=""){
-                document= Document("117",actualdate,"CC",id, name,lastname,city,mail,"Incapacidad",img64b)
-                viewModel.postdocument(document)
-
-            } else if (id=="" || name=="" || lastname=="" ||city=="" || mail==""  ) {
+            val attached=attachedtype.text.toString()
+              if (id=="" || name=="" || lastname=="" ||city=="" || mail==""  ) {
                 showMessage("No deben haber campos vacios")
-            } else {
+            } else if(img64b!=""){
+                  document= Document("117",actualdate,"CC",id, name,lastname,city,mail,attached,img64b)
+                  viewModel.postdocument(document)
+              }
+            else  {
                 showMessage("No se ha adjuntado imagen")
             }
 

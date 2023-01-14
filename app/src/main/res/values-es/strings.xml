@@ -20,6 +20,15 @@
     <string name="previous">Anterior</string>
     <string name="enter">Ingresar</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="name">Nombre</string>
+    <string name="lastname">Apellido</string>
+    <string name="Email">Correo</string>
+    <string name="City">Ciudad</string>
+    <string name="attached">Tipo Adjunto</string>
+    <string name="DocumentNumber">Numero de Documento</string>
+    <string name="DataAccess">Ingresa tus datos para acceder</string>
+    <string name="Document">Documento</string>
+    <string name="Send">Enviar</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
